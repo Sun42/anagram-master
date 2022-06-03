@@ -1,5 +1,7 @@
 <?php
 
+include "anagramHelper.php";
+
 function print_usage()
 {
     echo 'USAGE' . PHP_EOL;
@@ -14,4 +16,16 @@ if ($argc < 2)
 {
     print_usage();
     exit(1);
+}
+else 
+{
+    $words = getWords("anagram-master-dictionnaire.txt");
+    // var_dump($dict);
+    foreach ($words as $word)
+    {
+        if (isAnagram($word, $argv[1]))
+        {
+            echo "$word\n";
+        }
+    }
 }

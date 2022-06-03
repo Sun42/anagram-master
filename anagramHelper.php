@@ -35,3 +35,16 @@ function charsCounter($str) : array
     }
     return $array;
 }
+
+function getWords($filename)
+{
+    $words = [];
+    $resource = fopen($filename, 'r');
+    if (!$resource)
+        return false;
+    while (($buffer = fgets($resource, 4096)) !== false) {
+        $words[] = trim($buffer);
+    }
+    fclose($resource);
+    return $words;
+}
