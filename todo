@@ -1,0 +1,27 @@
+# ETAPE 1 Choix Algo/solution 
+Solution1 : 
+generer toutes les permutations possibles pour le mot en paramètre puis verifier si lapermutation existe dans le dico
+- : la génération des permutations 'imparfaites' peut etre complexe dans l'exercice 2 
+- : complexité temporelle Nombre de codes possibles avec N chars en base B pour un DICO de D words (O)B^N * D
+- : contrainte de temps ?: pas sur
+
+Solution 2:
+on parcours chaque mot du dico, pour chaque mot du dico on vérifie que c'est un anagram
++ : complexité temporelle/temps d'execution (0) D
++ : s'adapte bien à la résolution de l'exercice 2, pour chaque mot on vérifie si c'est un anagramme imparfait en nombre de lettres qui matchs
++ : contrainte de temps: ok
+
+# ETAPE 2 DECOMPOSER en sous tâches: todo
+    [x] usage et gestions des params
+    [ ] ex1: faire fonction is_anagram(s1, s2) : bool
+    [ ] open file get words tab (opti grouper les mots par leur taille)
+    [ ] ex2: faire fonction is_partial_anagram(s1, s2, nb) : bool
+
+# ETAPE 3 TDD is_anagram
+[x] error argument 1 null ou vide => false
+[x] error argument 2 null ou vide => false
+[ ] test s1 et s2 pas la même taille => doit retourner false
+[ ] test s1 et s2 même taille et strictement identique => doit retourner false
+[ ] test s1 et s2 même taille mais pas anagram => doit retourner false
+[ ] cas ou s1 a 2 lettre identiques mais pas s2, meme taille, meme echantillons de lettres => retourner false
+[ ] test s1 et s2 même taille et memes lettres et meme nombre d'occurence de chaque lettre et mot pas identique => doit retourner true
