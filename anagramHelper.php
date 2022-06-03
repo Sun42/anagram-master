@@ -8,14 +8,13 @@ function isAnagram($str1, $str2, $nb = 0) : bool
     $len2 = strlen($str2);
     if ($len1 == 0 || $len2 == 0)
         return false;
-    if ($len1 != $len2)
+    if ($len1 != ($len2 - $nb))
         return false;
     if ($str1 == $str2)
         return false;
 
     $ar1 = charsCounter($str1);
     $ar2 = charsCounter($str2);
-
 
     if ($nb == 0)
     {
@@ -27,10 +26,7 @@ function isAnagram($str1, $str2, $nb = 0) : bool
         $delta = getDelta($str1, $ar2);
         if ($delta == -1)
             return false;
-        if ($delta == $nb)
-            return true;
-        else
-            return false;
+        return ($delta == $nb);
     }
 }
 
@@ -72,7 +68,7 @@ function getDelta($word, $ar2) : int
         $char = $word[$i];
         if (!isset($ar2[$char]))
             return -1;
-        if ($ar2[$char] < 0)
+        if ($ar2[$char] <= 0)
             return -1;
         $ar2[$char]--;
     }
@@ -81,7 +77,6 @@ function getDelta($word, $ar2) : int
     {
         $cpt += $value;
     }
-    // 
     return $cpt;
 
 

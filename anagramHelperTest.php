@@ -90,9 +90,17 @@ final class AnagramHelperTest extends TestCase
         $this->assertEquals($expected, $actual);
     }
 
+    public function test_getDelta()
+    {
+        $str1 = "aera";
+        $str2 = "marie";
+        $ar2 = charsCounter($str2);
+        $delta = getDelta($str1, $ar2);
+        $this->assertTrue($delta == -1);
+    }
     public function testisAnagram_imperfect1() {
         // when
-        $ret = isAnagram("str", "rt", 1);
+        $ret = isAnagram("salu", "salut", 1);
         // then
         $this->assertTrue($ret);
     }
