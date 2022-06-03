@@ -12,7 +12,10 @@ function isAnagram($str1, $str2, $nb = 0) : bool
         return false;
     if ($str1 == $str2)
         return false;
+    if ($nb < 0 || $nb >= strlen($str2))
+    {
 
+    }
     $ar1 = charsCounter($str1);
     $ar2 = charsCounter($str2);
 
@@ -29,7 +32,6 @@ function isAnagram($str1, $str2, $nb = 0) : bool
         return ($delta == $nb);
     }
 }
-
 
 function charsCounter($str) : array
 {
@@ -63,6 +65,8 @@ function getWords($filename)
 function getDelta($word, $ar2) : int
 {
     $len = strlen($word);
+    // pour chaque char on cherche une correspondance
+    // dans le tableau et on décremente
     for ($i = 0; $i < $len; $i++)
     {
         $char = $word[$i];
@@ -73,6 +77,7 @@ function getDelta($word, $ar2) : int
         $ar2[$char]--;
     }
     $cpt = 0;
+    // on retourne la somme des valeurs restantes
     foreach ($ar2 as $char2 => $value)
     {
         $cpt += $value;
