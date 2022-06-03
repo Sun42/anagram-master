@@ -90,6 +90,11 @@ final class AnagramHelperTest extends TestCase
         $this->assertEquals($expected, $actual);
     }
 
-
+    public function testisAnagram_imperfect1() {
+        // when
+        $ret = isAnagram("str", "rt", 1);
+        // then
+        $this->assertTrue($ret);
+    }
 
 }

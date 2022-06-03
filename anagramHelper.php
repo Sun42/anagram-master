@@ -1,6 +1,6 @@
 <?php
 
-function isAnagram($str1, $str2) : bool
+function isAnagram($str1, $str2, $nb = 0) : bool
 {
     if (!isset($str1) || !isset($str2))
         return false;
@@ -16,7 +16,22 @@ function isAnagram($str1, $str2) : bool
     $ar1 = charsCounter($str1);
     $ar2 = charsCounter($str2);
 
-    return ($ar1 == $ar2);
+
+    if ($nb == 0)
+    {
+        //perfect anagram
+        return ($ar1 == $ar2);
+    }
+    else
+    {
+        $delta = getDelta($str1, $ar2);
+        if ($delta == -1)
+            return false;
+        if ($delta == $nb)
+            return true;
+        else
+            return false;
+    }
 }
 
 
@@ -47,4 +62,27 @@ function getWords($filename)
     }
     fclose($resource);
     return $words;
+}
+
+function getDelta($word, $ar2) : int
+{
+    $len = strlen($word);
+    for ($i = 0; $i < $len; $i++)
+    {
+        $char = $word[$i];
+        if (!isset($ar2[$char]))
+            return -1;
+        if ($ar2[$char] < 0)
+            return -1;
+        $ar2[$char]--;
+    }
+    $cpt = 0;
+    foreach ($ar2 as $char2 => $value)
+    {
+        $cpt += $value;
+    }
+    // 
+    return $cpt;
+
+
 }

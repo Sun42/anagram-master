@@ -20,12 +20,21 @@ if ($argc < 2)
 else 
 {
     $words = getWords("anagram-master-dictionnaire.txt");
-    // var_dump($dict);
     foreach ($words as $word)
     {
-        if (isAnagram($word, $argv[1]))
+        if ($argc == 2)
         {
-            echo "$word\n";
+            if (isAnagram($word, $argv[1]))
+            {
+                echo "$word\n";
+            }
+        }
+        if ($argc == 3)
+        {
+            if (isAnagram($word, $argv[1], (int)$argv[2]))
+            {
+                echo "$word\n";
+            }
         }
     }
 }
