@@ -1,52 +1,37 @@
 <?php
 
-function my_strcmp(string $s1,string $s2) : int
+function isAnagram($str1, $str2) : bool
 {
-    return strcmp($s1, $s2);
-}
-
-/**
- * []
- */
-function char_match($char, &$ar2) : bool
-{
-    $len = count($ar2);
-    for ($i = 0; $i < $len; $i++)
-    {
-
-        // if key exists && value == true
-        if ($ar2[$i][0] == $char && $ar2[$i][1] === true)
-        {
-            $ar2[$i][1] = false;
-            return true;
-        }
-    }
-    return false;
-}
-
-function isAnagram($s1, $s2) : bool
-{
-    if (!isset($s1) || !isset($s2))
+    if (!isset($str1) || !isset($str2))
         return false;
-    $len1 = strlen($s1);
-    $len2 = strlen($s2);
+    $len1 = strlen($str1);
+    $len2 = strlen($str2);
     if ($len1 == 0 || $len2 == 0)
         return false;
     if ($len1 != $len2)
         return false;
-   if (my_strcmp($s1, $s2) == 0)
+    if ($str1 == $str2)
         return false;
-    
-    // $ar2 = [['s', true], ['t'=> true]] 
-    
-    for ($i = 0; $i < $len1; $i++)
+
+    $ar1 = charsCounter($str1);
+    $ar2 = charsCounter($str2);
+
+    return ($ar1 == $ar2);
+}
+
+
+function charsCounter($str) : array
+{
+    $array = [];
+    $len  = strlen($str);
+    for ($i = 0; $i < $len ; $i++)
     {
-        if (!char_match($s1[$i], $ar2))
-        {
-            return false;
-        }
+        $char = $str[$i];
+        // si la clé n'existe pas encore, première occurence
+        if (!isset($array[$char]))
+            $array[$char] = 1;
+        else
+            $array[$char] += 1;
     }
-    // ici verifier que $ar2 est tout bon
-    return true;
-    throw new Exception("not implemented");
+    return $array;
 }

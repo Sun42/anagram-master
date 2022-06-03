@@ -11,17 +11,20 @@ on parcours chaque mot du dico, pour chaque mot du dico on vérifie que c'est un
 + : s'adapte bien à la résolution de l'exercice 2, pour chaque mot on vérifie si c'est un anagramme imparfait en nombre de lettres qui matchs
 + : contrainte de temps: ok
 
-# ETAPE 2 DECOMPOSER en sous tâches: todo
+# ETAPE 2 DECOMPOSER en sous tâches
     [x] usage et gestions des params
-    [ ] ex1: faire fonction is_anagram(s1, s2) : bool
+    [x] ex1: faire fonction isAnagram(s1, s2) : bool
+        [x] faire fonction charsCounter
     [ ] open file get words tab (opti grouper les mots par leur taille)
-    [ ] ex2: faire fonction is_partial_anagram(s1, s2, nb) : bool
+    [ ] ex2: faire fonction isAnagram(s1, s2, nb) : bool
 
-# ETAPE 3 TDD is_anagram
+## TDD isAnagramPerfect
 [x] error argument 1 null ou vide => false
 [x] error argument 2 null ou vide => false
-[ ] test s1 et s2 pas la même taille => doit retourner false
-[ ] test s1 et s2 même taille et strictement identique => doit retourner false
-[ ] test s1 et s2 même taille mais pas anagram => doit retourner false
-[ ] cas ou s1 a 2 lettre identiques mais pas s2, meme taille, meme echantillons de lettres => retourner false
-[ ] test s1 et s2 même taille et memes lettres et meme nombre d'occurence de chaque lettre et mot pas identique => doit retourner true
+[x] test s1 et s2 pas la même taille => doit retourner false
+[x] test s1 et s2 même taille et strictement identique => doit retourner false
+[] autres tests OK
+[] autres tests KO
+[] penser au cas '-'
+
+## TDD letter counter

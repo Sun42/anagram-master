@@ -75,16 +75,21 @@ final class AnagramHelperTest extends TestCase
         // then
         $this->assertTrue($ret);
     }
+
+    public function testCharsCounter1()
+    {
+        # given
+        $str = "salutations";
+        # when
+        $actual = charsCounter($str);
+        # then
+        $expected = ["a" => 2 , "s" => 2, "l" => 1, "u" => 1,
+        "t" => 2, "i" => 1, "o" => 1 , "n" => 1
+        ];
+        $this->assertTrue($expected == $actual);
+        $this->assertEquals($expected, $actual);
+    }
+
+
+
 }
-// function test_is_anagram_error_param1()
-// {
-//     # GIVEN
-//     $s1 = null;
-//     $s2 = "osef";
-
-//     # WHEN
-//     $ret = is_anagram($s1, $s2);
-
-//     # THEN
-//     assert($ret === false);
-// }
