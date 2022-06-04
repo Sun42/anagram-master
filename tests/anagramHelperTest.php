@@ -98,6 +98,8 @@ final class AnagramHelperTest extends TestCase
         $delta = getDelta($str1, $ar2);
         $this->assertTrue($delta == -1);
     }
+
+
     public function testisAnagram_imperfect1() {
         // when
         $ret = isAnagram("salu", "salut", 1);
@@ -105,4 +107,18 @@ final class AnagramHelperTest extends TestCase
         $this->assertTrue($ret);
     }
 
+    public function test_getDelta2()
+    {
+        $str1 = "ara";
+        $ar2 = charsCounter("aram");
+        $delta = getDelta($str1, $ar2);
+        $this->assertTrue($delta === 1, "Delta should be 1");
+    }
+
+    public function testisAnagram_imperfect2() {
+        // when
+        $ret = isAnagram("ara", "aram", 1);
+        // then
+        $this->assertTrue($ret);
+    }
 }

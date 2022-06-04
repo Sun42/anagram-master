@@ -12,10 +12,7 @@ function isAnagram($str1, $str2, $nb = 0) : bool
         return false;
     if ($str1 == $str2)
         return false;
-    if ($nb < 0 || $nb >= strlen($str2))
-    {
 
-    }
     $ar1 = charsCounter($str1);
     $ar2 = charsCounter($str2);
 

@@ -15,10 +15,12 @@ on parcours chaque mot du dico, pour chaque mot du dico on vérifie que c'est un
     [x] usage et gestions des params
     [x] ex1: faire fonction isAnagram(s1, s2) : bool
         [x] faire fonction charsCounter
-    [ ] open file get words tab (opti grouper les mots par leur taille)
-    [ ] ex2: faire fonction isAnagram(s1, s2, nb) : bool
+    [x] open file get words tab
+    [x] ex2: faire fonction isAnagram(s1, s2, nb) : bool
+        [x] faire fonction get_delta
+    [] (optimisation grouper les mots par leur taille) pour
 
-## TDD isAnagramPerfect
+## TDD isAnagram
 [x] error argument 1 null ou vide => false
 [x] error argument 2 null ou vide => false
 [x] test s1 et s2 pas la même taille => doit retourner false
@@ -28,3 +30,8 @@ on parcours chaque mot du dico, pour chaque mot du dico on vérifie que c'est un
 [] penser au cas '-'
 
 ## TDD letter counter
+
+## TDD get_words
+
+## TDD isAnagram imperfect
+### TDD get_delta
